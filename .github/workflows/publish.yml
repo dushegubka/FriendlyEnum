@@ -1,1 +1,32 @@
+name: Build and Publish
+on:
+  push:
+    branches: 
+      - master
 
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 8.0.x
+      - name: Restore dependencies
+        run: dotnet restore
+      - name: Build
+        run: dotnet build --no-restore
+      - name: Test
+        run: dotnet test --no-build --verbosity normal
+      - name: Publish
+        run: dotnet publish --configuration Release --no-build
+        
+      - name: Push to NuGet
+        uses: rohith/publish-nuget@v2
+        with:
+          PROJECT_FILE_PATH: 'src/FriendlyEnum/FriendlyEnum.csproj'
+          NUGET_KEY: ${{secrets.NUGET}}
+          PACKAGE_NAME: FriendlyEnum
+        if: success()
