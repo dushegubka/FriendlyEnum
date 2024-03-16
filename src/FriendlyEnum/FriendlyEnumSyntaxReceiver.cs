@@ -22,6 +22,6 @@ public class FriendlyEnumSyntaxReceiver : ISyntaxReceiver
     {
         return syntax.AttributeLists
             .SelectMany(x => x.Attributes)
-            .Any(SyntaxExtensions.IsFriendlyNameAttribute);
+            .Any(SyntaxExtensions.IsFriendlyEnumAttribute);
     }
 }

@@ -37,6 +37,12 @@ public static class SyntaxExtensions
         return attribute.Name.ToString() == GeneratorConstants.FriendlyNameAttributeName
             .Replace(nameof(Attribute), string.Empty);
     }
+    
+    public static bool IsFriendlyEnumAttribute(AttributeSyntax attribute)
+    {
+        return attribute.Name.ToString() == GeneratorConstants.FriendlyEnumAttributeName
+            .Replace(nameof(Attribute), string.Empty);
+    }
 
     private static string GetExpressionText(AttributeArgumentSyntax argument)
     {
