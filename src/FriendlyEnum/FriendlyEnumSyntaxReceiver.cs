@@ -11,10 +11,10 @@ public class FriendlyEnumSyntaxReceiver : ISyntaxReceiver
     {
         if (syntaxNode is not EnumDeclarationSyntax enumDeclaration)
             return;
-        
+
         if (!HasFriendlyEnumAttribute(enumDeclaration))
             return;
-        
+
         Enums.Add(enumDeclaration, enumDeclaration.Members.ToList());
     }
 
@@ -22,6 +22,6 @@ public class FriendlyEnumSyntaxReceiver : ISyntaxReceiver
     {
         return syntax.AttributeLists
             .SelectMany(x => x.Attributes)
-            .Any(x => x.Name.ToString() == "FriendlyEnum");
+            .Any(SyntaxExtensions.IsFriendlyNameAttribute);
     }
 }
