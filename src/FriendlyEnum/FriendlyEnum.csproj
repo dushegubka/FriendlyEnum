@@ -18,7 +18,7 @@
         <PackageId>Dushegubka.FriendlyEnum</PackageId>
         <PackageProjectUrl>https://github.com/dushegubka/FriendlyEnum</PackageProjectUrl>
         <Authors>https://github.com/dushegubka</Authors>
-        <Version>1.0.0.1</Version>
+        <Version>1.0.0.2</Version>
         <Description>Simple Source generator for convenient enum to string conversion</Description>
     </PropertyGroup>
 
