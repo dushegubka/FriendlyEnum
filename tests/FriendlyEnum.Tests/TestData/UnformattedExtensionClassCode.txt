@@ -1,0 +1,14 @@
+public static class FriendlyEnumExtensions
+{
+public static string ToFriendlyName(this TestEnum value)
+{
+return value switch
+{
+TestEnum.One => "First",
+TestEnum.Two => nameof(TestEnum.Two),
+TestEnum.Three => nameof(TestEnum.Three),
+_ => throw new ArgumentException(nameof(value))
+};
+}
+
+}
