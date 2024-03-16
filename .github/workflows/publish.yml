@@ -21,7 +21,7 @@ jobs:
       - name: Test
         run: dotnet test --no-build --verbosity normal
       - name: Publish
-        run: dotnet publish --configuration Release --no-build
+        run: dotnet publish --configuration Release
         
       - name: Push to NuGet
         uses: rohith/publish-nuget@v2
