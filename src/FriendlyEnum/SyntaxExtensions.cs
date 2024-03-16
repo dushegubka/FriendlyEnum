@@ -26,16 +26,16 @@ public static class SyntaxExtensions
             .NormalizeWhitespace()
             .GetText(Encoding.UTF8);
     }
-    
 
     private static IEnumerable<AttributeSyntax> GetAttributes(AttributeListSyntax attributeList)
     {
         return attributeList.Attributes;
     }
 
-    private static bool IsFriendlyNameAttribute(AttributeSyntax attribute)
+    public static bool IsFriendlyNameAttribute(AttributeSyntax attribute)
     {
-        return attribute.Name.ToString() == "FriendlyName";
+        return attribute.Name.ToString() == GeneratorConstants.FriendlyNameAttributeName
+            .Replace(nameof(Attribute), string.Empty);
     }
 
     private static string GetExpressionText(AttributeArgumentSyntax argument)
