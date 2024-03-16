@@ -1,14 +1,11 @@
-### FriendlyEnum — генератор исходного кода для удобной конвертации Enum в String
-***
-
-### Установка 
-***
+## Dushegubka.FriendlyEnum
+Генератор исходного кода для удобной конвертации Enum в String
+## Установка 
 ``` 
 dotnet add package Dushegubka.FriendlyEnum
 ```
+## Использование 
 
-### Использование 
-***
 ```csharp
 [FriendlyEnum]
 public enum MyAwesomeEnum
@@ -36,7 +33,6 @@ public static class FriendlyEnumExtensions
     }
 }
 ```
-***
 
 ### Пример
 
